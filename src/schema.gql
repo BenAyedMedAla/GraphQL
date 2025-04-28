@@ -32,3 +32,26 @@ type Query {
   getAllCvs: [Cv!]!
   getCvById(id: String!): Cv
 }
+
+type Mutation {
+  createCv(createCvInput: CreateCvInput!): Cv!
+  updateCv(updateCvInput: UpdateCvInput!): Cv!
+  deleteCv(id: String!): Boolean!
+}
+
+input CreateCvInput {
+  name: String!
+  age: Int!
+  job: String!
+  userId: String!
+  skillIds: [String!]!
+}
+
+input UpdateCvInput {
+  name: String
+  age: Int
+  job: String
+  userId: String
+  skillIds: [String!]
+  id: String!
+}
